@@ -41,70 +41,77 @@ The dataset was sourced from [Kaggle’s Stroke Prediction Dataset](https://www.
 
 ---
 
-⚙️ Installation & Usage
-▶️ Option A: Run in Colab (no setup required)
+## ⚙️ Installation & Usage
+
+### ▶️ Option A: Run in Colab (no setup required)
 
 Click the badge at the top of this README and run all cells.
 
-▶️ Option B: Run locally
+### ▶️ Option B: Run locally
 
-Clone the repository:
+1. Clone the repository:
 
-git clone https://github.com/AkhilByju/Stroke-Predictor.git
-cd Stroke-Predictor
+   ```bash
+   git clone https://github.com/AkhilByju/Stroke-Predictor.git
+   cd Stroke-Predictor
+   ```
 
+2. (Optional) Create & activate a virtual environment:
 
-(Optional) Create & activate a virtual environment:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate   # On Windows: .venv\Scripts\activate
+   ```
 
-python -m venv .venv
-source .venv/bin/activate   # On Windows: .venv\Scripts\activate
+3. Install dependencies:
 
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-Install dependencies:
+4. Launch Jupyter Notebook and open the file:
 
-pip install -r requirements.txt
+   ```bash
+   jupyter notebook Stroke_Predictor_CS97.ipynb
+   ```
 
+5. Run all cells to preprocess data, train models, and view evaluation results.
 
-Launch Jupyter Notebook and open the file:
+---
 
-jupyter notebook Stroke_Predictor_CS97.ipynb
+## 📈 Results
 
+* **Random Forest** and **Logistic Regression** achieved strong performance compared to other models.
+* **Neural Network** implementation demonstrates the potential of deep learning but requires tuning for optimal performance.
 
-Run all cells to preprocess data, train models, and view evaluation results.
+**Evaluation includes:**
 
-📈 Results
+* Confusion Matrices
+* ROC Curves with AUC Scores
+* Comparative Accuracy
 
-Random Forest and Logistic Regression achieved strong performance compared to other models.
+---
 
-Neural Network implementation demonstrates the potential of deep learning but requires tuning for optimal performance.
+## 🔮 Future Improvements
 
-Evaluation includes:
+* Hyperparameter optimization using GridSearchCV / RandomizedSearch
+* Handling class imbalance with oversampling or weighted loss functions
+* Model interpretability using SHAP or LIME
+* Deployment as a **web app** (Flask/FastAPI + React)
+* Cross-validation and ensemble methods for robustness
 
-Confusion Matrices
+---
 
-ROC Curves with AUC Scores
+## ⚠️ Disclaimer
 
-Comparative Accuracy
+This project is for **educational purposes only** and **not for clinical use**.
+The models and predictions should **not** be used for real medical decision-making.
 
-🔮 Future Improvements
+---
 
-Hyperparameter optimization using GridSearchCV / RandomizedSearch
+## 👨‍💻 Author
 
-Handling class imbalance with oversampling or weighted loss functions
+**Akhil Byju**
+Undergraduate Student, UCLA (MCDB + Applied Mathematics, Pre-Med)
+Interests: Machine Learning, Bioengineering, Neuroscience
 
-Model interpretability using SHAP or LIME
-
-Deployment as a web app (Flask/FastAPI + React)
-
-Cross-validation and ensemble methods for robustness
-
-⚠️ Disclaimer
-
-This project is for educational purposes only and not for clinical use.
-The models and predictions should not be used for real medical decision-making.
-
-👨‍💻 Author
-
-Akhil Byju
-Undergraduate Student, UCLA (Computer Science)
-Interests: Machine Learning, Artificial Intelligence
