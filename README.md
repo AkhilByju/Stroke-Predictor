@@ -1,12 +1,21 @@
-# Stroke-Predictor
+# Stroke Predictor
 
-This project predicts whether an individual is at risk of having a stroke using machine learning models trained on health and demographic data. It explores classical ML algorithms as well as a neural network built in PyTorch.
+Predict stroke risk from health/demographic features.  
+This repo includes:
 
-The project was created as part of a CS97 Machine Learning course project.
+-   **Exploration notebook** (CS97 project): multiple classical ML models + a PyTorch NN.
+    
+-   **Pipeline**: clean `scikit-learn` training script that saves a model + metadata.
+    
+-   **Interactive app**: a **Gradio** UI to try predictions in the browser.
+    
+
+> **Educational use only — not for clinical decisions.**
 
 ---
 
 ## 🚀 Features
+
 - **Data Preprocessing**
   - Handles missing values with median imputation.
   - Encodes categorical variables.
@@ -25,6 +34,30 @@ The project was created as part of a CS97 Machine Learning course project.
   - Accuracy, Precision, Recall, and F1 Score
   - Confusion Matrices with visualization
   - ROC Curves & AUC scores for model comparison
+ 
+  ### Notebook (Exploration)
+
+-   Median imputation, encoding, scaling
+    
+-   Models: Logistic Regression, KNN, SVM, Decision Tree, Random Forest, PyTorch NN
+    
+-   Metrics: Accuracy, Precision/Recall/F1, Confusion Matrix, ROC-AUC
+
+### Pipeline (Training script)
+
+-   Clean `ColumnTransformer` (no leakage), stratified split
+    
+-   **Threshold tuning** (choose decision threshold to balance precision/recall)
+    
+-   Saves `model.joblib` + `metadata.json` (ROC-AUC, PR-AUC, chosen threshold, feature lists)
+    
+### App (Gradio)
+
+-   Form inputs for all features (age, BMI, glucose, hypertension, etc.)
+    
+-   Returns probability + label; slider to change decision threshold
+    
+-   Uses the same saved model (no code changes needed when you retrain)
 
 ---
 
@@ -75,7 +108,40 @@ Click the badge at the top of this README and run all cells.
    jupyter notebook Stroke_Predictor_CS97.ipynb
    ```
 
-5. Run all cells to preprocess data, train models, and view evaluation results.
+## ▶️ How to run
+
+### A) Explore in the notebook
+
+```bash
+jupyter notebook Stroke_Predictor_CS97.ipynb
+# run cells to see EDA, model training, and plots
+
+```
+### B) Train a model (pipeline)
+
+Use the trainer:
+
+```bash
+python train_pipeline.py
+
+```
+
+This will create:
+
+-   `model.joblib` — the trained model (ignored by git)
+    
+-   `metadata.json` — metrics + chosen threshold (ignored by git)
+    
+
+### C) Launch the Gradio app
+
+```bash
+python app.py
+
+```
+
+Open the printed URL (default: [http://127.0.0.1:7860](http://127.0.0.1:7860/)).  
+The app reads `model.joblib` + `metadata.json` and uses the saved **threshold** as the default.
 
 ---
 
