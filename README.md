@@ -27,3 +27,84 @@ The project was created as part of a CS97 Machine Learning course project.
   - ROC Curves & AUC scores for model comparison
 
 ---
+
+## 📊 Dataset
+The dataset was sourced from [Kaggle’s Stroke Prediction Dataset](https://www.kaggle.com/fedesoriano/stroke-prediction-dataset).  
+
+- **Features include:**  
+  - Age, Gender, BMI, Smoking Status  
+  - Hypertension, Heart Disease  
+  - Average Glucose Level  
+  - Marital/Work/Residence Status  
+
+- **Target:** `stroke` (1 = Stroke, 0 = No Stroke)
+
+---
+
+⚙️ Installation & Usage
+▶️ Option A: Run in Colab (no setup required)
+
+Click the badge at the top of this README and run all cells.
+
+▶️ Option B: Run locally
+
+Clone the repository:
+
+git clone https://github.com/AkhilByju/Stroke-Predictor.git
+cd Stroke-Predictor
+
+
+(Optional) Create & activate a virtual environment:
+
+python -m venv .venv
+source .venv/bin/activate   # On Windows: .venv\Scripts\activate
+
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+
+Launch Jupyter Notebook and open the file:
+
+jupyter notebook Stroke_Predictor_CS97.ipynb
+
+
+Run all cells to preprocess data, train models, and view evaluation results.
+
+📈 Results
+
+Random Forest and Logistic Regression achieved strong performance compared to other models.
+
+Neural Network implementation demonstrates the potential of deep learning but requires tuning for optimal performance.
+
+Evaluation includes:
+
+Confusion Matrices
+
+ROC Curves with AUC Scores
+
+Comparative Accuracy
+
+🔮 Future Improvements
+
+Hyperparameter optimization using GridSearchCV / RandomizedSearch
+
+Handling class imbalance with oversampling or weighted loss functions
+
+Model interpretability using SHAP or LIME
+
+Deployment as a web app (Flask/FastAPI + React)
+
+Cross-validation and ensemble methods for robustness
+
+⚠️ Disclaimer
+
+This project is for educational purposes only and not for clinical use.
+The models and predictions should not be used for real medical decision-making.
+
+👨‍💻 Author
+
+Akhil Byju
+Undergraduate Student, UCLA (Computer Science)
+Interests: Machine Learning, Artificial Intelligence
