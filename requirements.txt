@@ -5,3 +5,6 @@ seaborn
 scikit-learn
 graphviz
 torch
+joblib
+gradio
+kagglehub
