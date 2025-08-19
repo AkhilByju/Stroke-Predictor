@@ -112,6 +112,6 @@ The models and predictions should **not** be used for real medical decision-maki
 ## 👨‍💻 Author
 
 **Akhil Byju**
-Undergraduate Student, UCLA (MCDB + Applied Mathematics, Pre-Med)
-Interests: Machine Learning, Bioengineering, Neuroscience
+Undergraduate Student, UCLA (Computer Science)
+Interests: Machine Learning, Artificial Intelligence
 
