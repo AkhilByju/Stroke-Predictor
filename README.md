@@ -35,7 +35,7 @@ This repo includes:
   - Confusion Matrices with visualization
   - ROC Curves & AUC scores for model comparison
  
-  ### Notebook (Exploration)
+### Notebook (Exploration)
 
 -   Median imputation, encoding, scaling
     
