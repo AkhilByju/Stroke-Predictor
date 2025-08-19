@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+
+# Model artifacts
+model.joblib
+*.json
+
+# Jupyter / misc
+*.ipynb_checkpoints
+.DS_Store
