@@ -15,22 +15,22 @@ from sklearn.pipeline import Pipeline
 
 from kagglehub import KaggleDatasetAdapter, load_dataset
 
-# ---- Load
+# Load the dataset
 df = load_dataset(
     KaggleDatasetAdapter.PANDAS,
     "fedesoriano/stroke-prediction-dataset",
     "healthcare-dataset-stroke-data.csv",
 )
 
-# ---- Config
+# Configuration
 MODEL_PATH = Path("model.joblib")
 META_PATH  = Path("metadata.json")
 RANDOM_STATE = 42
 TEST_SIZE = 0.2
-RECALL_TARGET = 0.60      # tune as you like
+RECALL_TARGET = 0.60      # tune as you like/ option in gradio to change as well
 MIN_PRECISION = 0.25
 
-# ---- Clean
+# Data Cleaning
 assert "stroke" in df.columns
 df = df.drop(columns=["id"], errors="ignore")
 df["bmi"] = df["bmi"].fillna(df["bmi"].median())
@@ -57,15 +57,15 @@ clf = LogisticRegression(
 
 pipe = Pipeline([("pre", pre), ("clf", clf)])
 
-# ---- Split
+# Splitting the dataset
 X_tr, X_te, y_tr, y_te = train_test_split(
     X, y, test_size=TEST_SIZE, stratify=y, random_state=RANDOM_STATE
 )
 
-# ---- Train
+# Training
 pipe.fit(X_tr, y_tr)
 
-# ---- Evaluate + choose threshold
+# Evaluation metrics and threshold
 proba = pipe.predict_proba(X_te)[:, 1]
 roc = roc_auc_score(y_te, proba)
 ap  = average_precision_score(y_te, proba)
@@ -77,7 +77,6 @@ for p, r, t in zip(prec[1:], rec[1:], thr):
     if (r >= RECALL_TARGET) and (p >= MIN_PRECISION):
         chosen = float(t); break
 if chosen is None:
-    # fallback: maximize F1
     f1s = [(f1_score(y_te, (proba>=t).astype(int), zero_division=0), t) for t in thr]
     chosen = float(max(f1s, key=lambda x: x[0])[1])
 
@@ -92,7 +91,7 @@ print(f"\nChosen threshold: {chosen:.3f}")
 print("\n=== @chosen threshold ===")
 print(classification_report(y_te, y_opt, digits=3))
 
-# ---- Save
+# Save to external file
 dump(pipe, MODEL_PATH)
 meta = {
     "numeric_features": num_cols,
