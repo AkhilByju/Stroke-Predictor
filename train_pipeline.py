@@ -1,4 +1,3 @@
-# train_pipeline_simple.py
 import json
 from pathlib import Path
 import numpy as np
